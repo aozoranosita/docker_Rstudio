@@ -1,5 +1,5 @@
 # Use Ubuntu as the base image
-FROM ubuntu:24.04
+FROM ubuntu:22.04
 
 # Install necessary dependencies for R and RStudio
 RUN apt-get update && apt-get install -y \
@@ -25,7 +25,7 @@ ENV LC_ALL ja_JP.UTF-8
 RUN apt update -qq \
     && apt install --no-install-recommends software-properties-common dirmngr \
     && wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc \
-    && sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu noble-cran40/"
+    && add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/"
 
 # Install R
 RUN apt-get update && apt-get install --no-install-recommends -y r-base
